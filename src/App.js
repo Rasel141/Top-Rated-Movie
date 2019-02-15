@@ -29,14 +29,16 @@ class App extends Component {
         <AppBar position='fixed' >
           <Toolbar>
             <Typography variant='h6' color='inherit'>
-              Photos
+            Top Rated Movie
             </Typography>
           </Toolbar>
         </AppBar>
-        Top Rated Movie
-        {movies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      
+        <div className="movie-list">
+          {movies.map(movie => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     )
   }
