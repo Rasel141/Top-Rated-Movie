@@ -18,16 +18,18 @@ class App extends Component {
     // setTimeout(() => this.setState({
     //   movies: originalMovies
     // }), 5000)
-    const response =  await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
-    const json = await response.json()
-    this.setState({movies: json.results})
+    // const response =  await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+    // const json = await response.json()
+    // this.setState({movies: json.results})
   }
 
   render() {
     const {movies} = this.state
     return (
       <div className="App">
+        Top Rated Movie
         {movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+
       </div>
     );
   }

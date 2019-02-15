@@ -6,7 +6,8 @@ class MovieCard extends Component {
 
     return (
       <div>
-        {movie.title}
+{movie.title}
+        
       </div>
     )
   }
