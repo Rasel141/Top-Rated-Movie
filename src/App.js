@@ -7,11 +7,17 @@ import './App.css'
 import apiKey from './apiKey'
 
 import MovieCard from './components/MovieCard'
+import MovieDialog from './components/MovieDialog'
 
 class App extends Component {
   state = {
-    movies: []
+    movies: [],
+    selectedMovie: null
   }
+
+  selectMovie = movie => this.setState({selectedMovie: movie})
+  clearMovie = () => this.setState({selectedMovie: null})
+
 
   async componentDidMount () {
     const response = await fetch(
@@ -22,7 +28,7 @@ class App extends Component {
   }
 
   render () {
-    const { movies } = this.state
+    const { movies, selectedMovie } = this.state
     console.log(movies)
     return (
       <div className='App'>
@@ -36,9 +42,11 @@ class App extends Component {
       
         <div className="movie-list">
           {movies.map(movie => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} selectMovie={this.selectMovie} />
           ))}
         </div>
+
+        <MovieDialog movie = {selectedMovie} handleClose = {this.clearMovie} />
       </div>
     )
   }

@@ -12,6 +12,11 @@ import {
 } from '@material-ui/core'
 
 class MovieCard extends Component {
+  selectMovie = () => {
+    const { movie, selectMovie } = this.props
+    selectMovie(movie)
+  }
+
   render () {
     const { movie } = this.props
 
@@ -21,8 +26,9 @@ class MovieCard extends Component {
           <CardMedia
             className='movie-image'
             image={`http://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
-            title='Contemplative Reptile'
+            title={movie.title}
           />
+
           <CardContent>
             <Typography gutterBottom variant='h5' component='h2'>
               {movie.title}
@@ -31,10 +37,7 @@ class MovieCard extends Component {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size='small' color='primary'>
-            Share
-          </Button>
-          <Button size='small' color='primary'>
+          <Button size='small' color='primary' onClick={this.selectMovie}>
             Learn More
           </Button>
         </CardActions>
