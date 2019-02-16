@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './MovieCard.css'
 
 import {
   Card,
@@ -19,7 +20,7 @@ class MovieCard extends Component {
         <CardActionArea>
           <CardMedia
             className='movie-image'
-            image={movie.poster_path}
+            image={`http://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
             title='Contemplative Reptile'
           />
           <CardContent>
