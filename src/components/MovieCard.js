@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './MovieCard.css'
 
 import {
   Card,
@@ -10,6 +9,8 @@ import {
   Button,
   Typography
 } from '@material-ui/core'
+
+import './MovieCard.css'
 
 class MovieCard extends Component {
   selectMovie = () => {

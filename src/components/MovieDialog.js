@@ -1,12 +1,15 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import CardMedia from '@material-ui/core/Card'
+
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  CardMedia
+} from '@material-ui/core'
 
 import './MovieDialog.css'
 
@@ -23,15 +26,10 @@ export default class MovieDialog extends React.Component {
       content = (
         <DialogContent>
           <DialogContentText>{movie.overview}</DialogContentText>
-          {/* <CardMedia
-            className="movie-details-image"
+          <CardMedia
+            className='movie-details-image'
             image={`http://image.tmdb.org/t/p/w342${movie.poster_path}`}
             title={movie.title}
-          /> */}
-          <img
-            className='movie-details-image'
-            src={`http://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
-            alt='img'
           />
           <TextField
             label='Release date'
@@ -63,30 +61,19 @@ export default class MovieDialog extends React.Component {
     }
 
     return (
-      <div>
-        <Button
-          variant='outlined'
-          color='primary'
-          onClick={this.handleClickOpen}
-        >
-          Open form dialog
-        </Button>
-        <Dialog
-          open={!!movie}
-          onClose={handleClose}
-          aria-labelledby='form-dialog-title'
-        >
-          {title}
-          {content}
-          <DialogActions>
-            <Button onClick={handleClose} color='primary'>
-              close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      <Dialog
+        open={!!movie}
+        onClose={handleClose}
+        aria-labelledby='form-dialog-title'
+      >
+        {title}
+        {content}
+        <DialogActions>
+          <Button onClick={handleClose} color='primary'>
+            close
+          </Button>
+        </DialogActions>
+      </Dialog>
     )
   }
 }
-
-// export default MovieDialog
