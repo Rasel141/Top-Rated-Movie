@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import { Input, InputAdornment } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+
+import {
+  AppBar,
+  Toolbar,
+  Input,
+  Typography,
+  InputAdornment
+} from '@material-ui/core'
+
+import MovieCard from './components/movie-card/MovieCard'
+import MovieDialog from './components/movie-dialog/MovieDialog'
 
 import './App.css'
 import apiKey from './apiKey'
 
-import MovieCard from './components/movie-card/MovieCard'
-import MovieDialog from './components/movie-dialog/MovieDialog'
+const styles = {
+  toolbarRoot: {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#16a085'
+  },
+  toolbarGutters: {
+    padding: '.5rem 0'
+  }
+}
 
 class App extends Component {
   state = {
@@ -44,11 +60,12 @@ class App extends Component {
 
   render () {
     const { movies, selectedMovie, searchText } = this.state
-    console.log(movies)
+    const { classes } = this.props
+
     return (
       <div className='App'>
         <AppBar position='fixed'>
-          <Toolbar>
+          <Toolbar classes = {{root: classes.toolbarRoot, gutters: classes.toolbarGutters}}>
             <Typography variant='h6' color='inherit' className='title'>
               Top Rated Movie
             </Typography>
@@ -85,4 +102,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withStyles(styles)(App)
