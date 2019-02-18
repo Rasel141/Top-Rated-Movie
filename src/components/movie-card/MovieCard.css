@@ -1,7 +1,16 @@
 .movie-card  {
-    width: 300px;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
 }
 
 .movie-image {
     height: 169px;
+}
+
+@media(min-width: 500px) {
+    .movie-card {
+        width: 50%;
+    }
 }
