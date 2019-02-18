@@ -7,8 +7,8 @@ import { Input, InputAdornment } from '@material-ui/core'
 import './App.css'
 import apiKey from './apiKey'
 
-import MovieCard from './components/MovieCard'
-import MovieDialog from './components/MovieDialog'
+import MovieCard from './components/movie-card/MovieCard'
+import MovieDialog from './components/movie-dialog/MovieDialog'
 
 class App extends Component {
   state = {
